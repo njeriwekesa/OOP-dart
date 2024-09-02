@@ -28,11 +28,34 @@ class Car {
 }
 
 
-void main (){
-  // creating an object (instance of the Car)
-  Car myCar = Car('Toyota', 'Corolla');
+// void main (){
+//   // creating an object (instance of the Car)
+//   Car myCar = Car('Toyota', 'Corolla');
 
-  // calling the method(function) using the object
-  myCar.showDetails(); 
+//   // calling the method(function) using the object
+//   myCar.showDetails(); 
+// }
+
+class Book {
+  // properties of the book
+  String title;
+  String author;
+  int year;
+
+  // constructor
+  Book (this.title, this.author, this.year);
+
+  // method
+  void showDetails (){
+    print ('Title:$title, Brand:$author, Year:$year');
+  }
+
 }
 
+void main (){
+    // creating an instance of the book
+    Book myBook = Book('Made to Crave', 'Lysa Terkeurst', 2020);
+
+    // calling method
+    myBook.showDetails();
+  }
