@@ -17,17 +17,17 @@ class Person {
 
 //class Car {
   // properties of the class
-  String brand;
-  String model;
+//   String brand;
+//   String model;
 
-  // constructor
-  Car (this.brand, this.model);
+//   // constructor
+//   Car (this.brand, this.model);
 
-  // method(function) to display brand and model of the car
-  void showDetails (){
-    print('Brand:$brand, Model:$model');
-  }
-}
+//   // method(function) to display brand and model of the car
+//   void showDetails (){
+//     print('Brand:$brand, Model:$model');
+//   }
+// }
 
 
 // void main (){
