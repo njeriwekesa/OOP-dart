@@ -98,50 +98,113 @@
 // The code below demonstrates polymorphism in Dart, where a single method (makeSound()) behaves differently based on the type of object that calls it
 
 
-class Animal {
-  // method
-  void makeSound (){
-    print ('All animals have a good sound.');
+// class Animal {
+//   // method
+//   void makeSound (){
+//     print ('All animals have a good sound.');
+//   }
+// }
+
+// // derived class 1
+
+// class Dog extends Animal {
+//   @override
+
+//   void makeSound () {
+//     print ('Woof!');
+//   }
+// }
+
+// // derived class 2
+
+// class Cat extends Animal {
+//   @override
+
+//   void makeSound (){
+//     print ('Meow!');
+//   }
+// }
+
+// void main () {
+
+//   // create instances of the derived classes
+
+//   Animal genericAnimal = Animal();
+
+//    Dog myDog = Dog();
+
+//    Cat myCat = Cat ();
+
+
+//   //  polymorphism in action
+//   // the same method is called on different types of objects
+
+//   genericAnimal.makeSound();
+
+//   myDog.makeSound();
+
+//   myCat.makeSound();
+// }
+
+// ABSTRACTION
+
+// abstract class 
+ abstract class Shape {
+
+  // abstract method to calculate area
+  double calculateArea ();
+
+  // concrete method
+  void printInfo (){
+    print('This is a shape');
   }
-}
+ }
 
-// derived class 1
+//  concrete class 1
 
-class Dog extends Animal {
+class Circle extends Shape {
+
+  double radius;
+
+  Circle (this.radius);
+
   @override
-
-  void makeSound () {
-    print ('Woof!');
+  double calculateArea(){
+    return 3.14 * radius * radius;
   }
 }
 
-// derived class 2
+// concrete class 2
 
-class Cat extends Animal {
+class Rectangle extends Shape{
+  
+  double width, height;
+
+  Rectangle(this.width, this.height);
+
   @override
-
-  void makeSound (){
-    print ('Meow!');
+  double calculateArea(){
+    return width * height;
   }
 }
 
-void main () {
+void main(){
 
-  // create instances of the derived classes
+  // create instances of concrete classes
 
-  Animal genericAnimal = Animal();
+  Circle myCircle = Circle(5.0);
 
-   Dog myDog = Dog();
+  Rectangle myRectangle = Rectangle(4.0, 6.0);
 
-   Cat myCat = Cat ();
+  // use the common interface provided by the abstract class
 
+  print ('Circle Area: ${myCircle.calculateArea()}');
+  
+  print ('Rectangle Area: ${myRectangle.calculateArea()}');
 
-  //  polymorphism in action
-  // the same method is called on different types of objects
+  // concrete method from the abstract class
+  myCircle.printInfo();
 
-  genericAnimal.makeSound();
+  myRectangle.printInfo();
 
-  myDog.makeSound();
-
-  myCat.makeSound();
 }
