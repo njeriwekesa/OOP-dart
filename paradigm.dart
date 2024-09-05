@@ -46,49 +46,102 @@
 
 
 
-// INHERITANCE
-// The Dart code below demonstrates the concept of inheritance, where a class (Car) derives properties and behaviors from a base class (Vehicle)
+// // INHERITANCE
+// // The Dart code below demonstrates the concept of inheritance, where a child class (Car) derives properties and behaviors from a base/parent class (Vehicle)
 
-class Vehicle {
-  // properties of the vehicle
-  String brand;
-  int year;
+// class Vehicle {
+//   // properties of the vehicle
+//   String brand;
+//   int year;
 
-  // constructor having the vehicles's properties
-  Vehicle(this.brand, this.year);
+//   // constructor having the vehicles's properties
+//   Vehicle(this.brand, this.year);
 
-  // method to display the vehicle's details
-  void displayInfo(){
-    print ('Vehicle information is: $year $brand');
+//   // method to display the vehicle's details
+//   void displayInfo(){
+//     print ('Vehicle information is: $year $brand');
 
+//   }
+// }
+
+// // inheritance begins
+// // derived class (inherits from Vehicle)
+
+// class Car extends Vehicle {
+
+//   // child properties
+//   String model;
+
+//   // child constructor
+//   Car (String brand, this.model, int year) : super(brand, year);
+
+//   // method showing childs information
+//   void displayCarInfo (){
+//     print ('Car information is: $year $brand $model');
+//   }
+
+// }
+
+// void main (){
+//   // create instance/object of the Car class
+//   Car myCar = Car ('Toyota', 'Carmy', 2022);
+
+//   // access and display information using methods from both Vehicle and Car classes
+
+//   myCar.displayInfo();
+
+//   myCar.displayCarInfo();
+// }
+
+
+// POLYMORPHISM
+// The code below demonstrates polymorphism in Dart, where a single method (makeSound()) behaves differently based on the type of object that calls it
+
+
+class Animal {
+  // method
+  void makeSound (){
+    print ('All animals have a good sound.');
   }
 }
 
-// inheritance begins
-// derived class (inherits from Vehicle)
+// derived class 1
 
-class Car extends Vehicle {
+class Dog extends Animal {
+  @override
 
-  // child properties
-  String model;
-
-  // child constructor
-  Car (String brand, this.model, int year) : super(brand, year);
-
-  // method showing childs information
-  void displayCarInfo (){
-    print ('Car information is: $year $brand $model');
+  void makeSound () {
+    print ('Woof!');
   }
-
 }
 
-void main (){
-  // create instance/object of the Car class
-  Car myCar = Car ('Toyota', 'Carmy', 2022);
+// derived class 2
 
-  // access and display information using methods from both Vehicle and Car classes
+class Cat extends Animal {
+  @override
 
-  myCar.displayInfo();
+  void makeSound (){
+    print ('Meow!');
+  }
+}
 
-  myCar.displayCarInfo();
+void main () {
+
+  // create instances of the derived classes
+
+  Animal genericAnimal = Animal();
+
+   Dog myDog = Dog();
+
+   Cat myCat = Cat ();
+
+
+  //  polymorphism in action
+  // the same method is called on different types of objects
+
+  genericAnimal.makeSound();
+
+  myDog.makeSound();
+
+  myCat.makeSound();
 }
